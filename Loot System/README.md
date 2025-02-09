@@ -27,6 +27,47 @@ Ce dépôt documente les différentes méthodes de drop et de loot utilisées da
 **Avantages** : Simple à implémenter, crée un sentiment d'excitation.  
 **Inconvénients** : Peut frustrer les joueurs malchanceux.
 
+## Script: fixed_probability.py
+Ce script simule le système de loot d'un jeu, où un joueur a la possibilité d'obtenir une épée rare, une armure légendaire ou rien du tout après avoir vaincu un boss.
+
+### 1. Probabilités de Loot
+
+- **Épée rare** : `10%` de chance d'obtention.
+- **Armure légendaire** : `2%` de chance d'obtention.
+- **Rien** : `88%` de chance de ne rien obtenir.
+
+### 2. Fonctionnement du Script
+
+1. **Génération d'un Nombre Aléatoire**  
+   Le script utilise `random.random()` pour générer un nombre flottant entre `0` et `1`.
+
+2. **Détermination du Loot**  
+   - Si le nombre généré est inférieur à `0.02` (`2%`), le joueur obtient une **armure légendaire**.
+   - Sinon, si le nombre est inférieur à `0.12` (`2% + 10%`), le joueur obtient une **épée rare**.
+   - Sinon, le joueur **n'obtient rien**.
+
+3. **Simulation de Plusieurs Défaites**  
+   La fonction `simulate_boss_defeats` permet de simuler la défaite du boss un certain nombre de fois et de compter les résultats obtenus.
+
+4. **Affichage des Résultats**  
+   Après la simulation, le script affiche :
+   - Le nombre de fois que chaque objet a été obtenu.
+   - Le pourcentage correspondant par rapport au nombre total de simulations.
+
+## Utilisation
+
+Pour utiliser ce script, assurez-vous d'avoir **Python** installé sur votre machine. Exécutez le script et spécifiez le **nombre de simulations** souhaitées. Le script affichera alors les résultats détaillés de la simulation.
+
+### Exemple de Résultats
+
+Après avoir simulé `10 000` défaites du boss, les résultats pourraient être les suivants :
+
+```plaintext
+Armures légendaires obtenues : 200 (2%)
+Épées rares obtenues : 1 000 (10%)
+Aucun loot : 8 800 (88%)
+```
+
 ---
 
 ## 2. Tables de loot (Loot Tables)
