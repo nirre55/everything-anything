@@ -75,6 +75,7 @@ rarete_config = {
     "Rare": {"range": (0.10, 0.20)},  # Entre 10% et 20%
     "Epique": {"range": (0.03, 0.07)},  # Entre 3% et 7%
     "Legendaire": {"fixed": random.randint(1, 2)},  # Entre 1 et 2 éléments
+    # TODO: BUG lorsque legendaire est a 2 on depasse le nombre totale de 1 ce qui nous donne 151
 }
 
 # Liste de nombres (peut être modifiée)
