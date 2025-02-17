@@ -1,1 +1,19 @@
-Le jeu s'appelle 'Balance Scale'. Vous devez choisir un nombre entre 0 et 100. La moyenne du nombre choisi par tous les joueurs sera multipliée par 0,8, et ce produit sera le nombre gagnant. Le joueur qui devine le nombre gagnant ou le nombre le plus proche remporte la manche. Il n'y aura qu'un seul gagnant à chaque manche et tous les joueurs, sauf le gagnant, recevront un point négatif. Lorsqu'un joueur atteint dix points négatifs, la partie sera terminée pour lui. La partie commence avec tous les joueurs à zéro. Chaque fois qu'un joueur reçoit un 'GAME OVER', une nouvelle règle sera ajoutée. »
+# 🎉 Balance Scale 🎉
+
+**Règles du Jeu:**
+
+- **Choisissez un Nombre** 📊: Chaque joueur doit choisir un nombre entre **0 et 100**.
+  
+- **Calcul du Nombre Gagnant** 🧮: La **moyenne** des nombres choisis par tous les joueurs sera multipliée par **0,8**. Ce produit sera le **nombre gagnant**.
+
+- **Gagner la Manche** 🏆: Le joueur qui **devine le nombre gagnant** ou celui qui est le **plus proche** remporte la manche. 
+
+- **Points Négatifs** 😢: Tous les joueurs, sauf le gagnant, **reçoivent un point négatif** à chaque manche.
+
+- **Fin de Partie** 🚫: Lorsqu'un joueur atteint **dix points négatifs**, la partie est **terminée pour lui** avec un 'GAME OVER'.
+
+- **Nouvelle Règle** 📜: À chaque 'GAME OVER', **une nouvelle règle sera ajoutée** au jeu.
+
+- **Début de Partie** 🔄: Tous les joueurs commencent avec un **score de zéro**.
+
+Amusez-vous bien et que la chance soit avec vous dans Balance Scale! 🎲✨
