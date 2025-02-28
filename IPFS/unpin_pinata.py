@@ -2,13 +2,15 @@ import requests
 import sys
 
 # Configuration Pinata
-PINATA_API_KEY = "ton_api_key"
-PINATA_SECRET = "ton_secret_key"
+PINATA_API_KEY = "91bc2786a2d61baf6616"
+PINATA_SECRET = "a1fe31e380263bc2ca96565db35e541cedf91facecdc151d60061d59702ac32a"
+
 UNPIN_URL = "https://api.pinata.cloud/pinning/unpin/"
 HEADERS = {
     "pinata_api_key": PINATA_API_KEY,
     "pinata_secret_api_key": PINATA_SECRET,
 }
+
 
 # Fonction pour unpin un CID de Pinata
 def unpin_from_pinata(cid):
@@ -17,9 +19,12 @@ def unpin_from_pinata(cid):
         if response.status_code == 200:
             print(f"CID {cid} a été unpinned avec succès. Espace libéré.")
         else:
-            raise Exception(f"Erreur lors de l'unpin : {response.status_code} - {response.text}")
+            raise Exception(
+                f"Erreur lors de l'unpin : {response.status_code} - {response.text}"
+            )
     except Exception as e:
         print(f"Erreur : {str(e)}")
+
 
 # Vérification et exécution
 if __name__ == "__main__":
@@ -28,7 +33,7 @@ if __name__ == "__main__":
         print("Usage : python script.py <CID>")
         print("Exemple : python script.py QmUBFTnx...")
         sys.exit(1)
-    
+
     cid = sys.argv[1]
     print(f"Tentative de suppression du CID : {cid}")
     unpin_from_pinata(cid)
