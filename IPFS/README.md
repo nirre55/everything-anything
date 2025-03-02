@@ -152,7 +152,7 @@ Ce guide explique comment uploader un répertoire sur un nœud IPFS local en uti
    ```bash
    python pin_pinata_folder.py 
 
-## Upload un file dans pinata 
+## Upload un fichier dans pinata 
 
 1. **Pré-requis** :
    - Preparer le fichier a upload dans notre exemple : 2.png
