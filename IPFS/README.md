@@ -27,7 +27,8 @@ Ce guide explique comment uploader un répertoire sur un nœud IPFS local en uti
      ```
 3. **Compte Pinata** :
    - Crée un compte sur [Pinata](https://pinata.cloud).
-   - Récupère tes clés API (`PINATA_API_KEY` et `PINATA_SECRET_API_KEY`) depuis le tableau de bord.
+   - Récupère tes clés API (`PINATA_API_KEY`, `PINATA_SECRET_API_KEY` et `PINATA_JWT_KEY`) depuis le tableau de bord.
+   - Remplir le fichier .env avec les bonne cles API
 
 
 ## Uploader le répertoire sur IPFS local
@@ -60,7 +61,7 @@ Ce guide explique comment uploader un répertoire sur un nœud IPFS local en uti
 
 - **Suppression** 
     ```bash
-    ipfs pin ls
+    ipfs pin rm <CID>
     ```
         
 - **Nettoyage**
@@ -150,7 +151,7 @@ Ce guide explique comment uploader un répertoire sur un nœud IPFS local en uti
 
    - Ouvre un terminal et exécute :
    ```bash
-   python pin_pinata_folder.py 
+   python pin_pinata_folder.py
 
 ## Upload un fichier dans pinata 
 

@@ -1,11 +1,15 @@
 import requests
 import json
+from load_config import load_config
 
-# Configuration Pinata
-PINATA_API_KEY = "91bc2786a2d61baf6616"
-PINATA_SECRET_API_KEY = (
-    "a1fe31e380263bc2ca96565db35e541cedf91facecdc151d60061d59702ac32a"
-)
+# Charge les variables d'environnement
+config = load_config()
+
+
+# Vos clés API Pinata
+PINATA_API_KEY = config["api_key"]
+PINATA_SECRET_API_KEY = config["api_secret_key"]
+
 PINATA_API_URL = "https://api.pinata.cloud/pinning/pinHashToIPFS"
 
 
