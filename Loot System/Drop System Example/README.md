@@ -18,7 +18,7 @@ Ce dépôt documente les différentes méthodes de drop et de loot utilisées da
 - [13. Systèmes de Tokenisation](#13-systèmes-de-tokenisation)
 - [14. Systèmes de Loot Évolutif](#14-systèmes-de-loot-évolutif)
 - [15. Systèmes de Loot Négociable](#15-systèmes-de-loot-négociable)
-
+- [16. Wow Drop Loot ](#16-wow_drop_loot)
 ---
 
 ## 1. Probabilités fixes (RNG - Random Number Generation)
@@ -179,6 +179,68 @@ Aucun loot : 8 800 (88%)
 **Exemple** : Dans "World of Warcraft", certains loots sont échangeables entre membres d’un raid pendant un temps limité.  
 **Avantages** : Permet aux joueurs d’obtenir ce dont ils ont besoin sans dépendre de la chance pure.  
 **Inconvénients** : Peut favoriser l’exploitation et l'économie parallèle (marché noir).
+
+---
+
+## 16. Wow Drop Loot 
+
+### Description :
+`wow_drop_loot.py` est un script Python qui simule un système de loot (butin) inspiré des jeux de type RPG, comme World of Warcraft. Il génère une liste d'objets avec des raretés et probabilités associées, effectue des simulations de drops, et produit des statistiques détaillées. Les probabilités sont sauvegardées pour garantir une cohérence entre les exécutions.
+
+Le script utilise des catégories de rareté (Commun, Peu commun, Rare, Épique, Légendaire) avec des proportions prédéfinies et attribue des probabilités spécifiques à chaque objet en fonction de sa rareté.
+
+### Fonctionnalités principales :
+- **Génération d'objets** : Crée une liste de `NOMBRE_ELEMENTS` objets (par défaut 259), numérotés de "1" à "259", mélangés aléatoirement.
+- **Répartition des raretés** : Assigne des raretés selon les proportions suivantes :
+  - Commun : 40 %
+  - Peu commun : 30 %
+  - Rare : 20 %
+  - Épique : 9 %
+  - Légendaire : 1 %
+- **Probabilités** : Attribue une probabilité à chaque objet dans une plage spécifique à sa rareté :
+  - Commun : 20 % à 40 %
+  - Peu commun : 10 % à 19 %
+  - Rare : 5 % à 9 %
+  - Épique : 1 % à 4 %
+  - Légendaire : 0.1 % à 0.9 %
+- **Simulation de drops** : Génère des drops avec un minimum de 3 objets (`MIN_ITEMS`) et un maximum de 5 (`MAX_ITEMS`) par simulation, en respectant les probabilités.
+- **Statistiques** : Calcule les occurrences et pourcentages par objet et par rareté après `NUM_SIMULATIONS` (par défaut 1000).
+- **Sauvegarde/Chargement** : Sauvegarde les probabilités et raretés dans un fichier pour une réutilisation cohérente.
+
+### Fichiers générés :
+Le script crée deux fichiers dans le même dossier que `wow_drop_loot.py` :
+1. **`loot_simulation_results.txt`** :
+   - Contient les probabilités initiales, les résultats des simulations, et les statistiques.
+   - Exemple de contenu :
+     ```
+     Probabilités attribuées aux objets :
+     45 (Commun): 25.67%
+     123 (Rare): 7.89%
+     ...
+
+     Résultats des 1000 simulations :
+     Simulation 1 : ['45', '123', '7']
+     ...
+
+     Statistiques après 1000 simulations :
+     45 (Commun): 250 fois (5.00% des drops possibles, probabilité initiale: 25.67%)
+     ...
+
+     Statistiques par rareté :
+     Commun: 2000 fois (40.12% des drops totaux)
+     ...
+     ```
+2. **`probabilities.txt`** :
+   - Fichier JSON stockant la liste des items, leurs probabilités et raretés.
+   - Généré à la première exécution, chargé aux exécutions suivantes.
+   - Exemple :
+     ```json
+     {
+         "items": ["45", "123", "7", ...],
+         "probs": {"45": 25.67, "123": 7.89, ...},
+         "rarities": {"45": "Commun", "123": "Rare", ...}
+     }
+     ```
 
 ---
 
