@@ -1,10 +1,8 @@
-Country Extract/country_borders/
-Country Extract/highlighted_countries/
-Country Extract/random_color_countries/
-IPFS/images/*
-IPFS/metadata/*
 *.txt
 *.json
 .env
 __pycache__/
 *.pyc
+*.svg
+*.png
+everything_anything.egg-info/

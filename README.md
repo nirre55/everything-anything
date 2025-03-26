@@ -4,36 +4,41 @@ Bienvenue dans **Everything and Anything**, le repo ultime où le chaos rencontr
 
 ---
 
-## **Qu'est-ce qu'il y a dedans ?** 📂
+# 📦 Installation et Structure du Projet
 
-Ce repo est un véritable capharnaüm de scripts, organisés (ou pas) en sous-dossiers. Chaque dossier est un petit monde à part, rempli de scripts allant de l'utile au complètement bizarre. Voici ce que tu pourrais trouver :
-
-- **Outils utiles** : Des scripts qui pourraient servir à quelque chose.  
-- **Expériences aléatoires** : Du code qui existe juste parce que... pourquoi pas ?  
-- **Bazar en vrac** : Des trucs qui défient toute catégorisation.  
-- **Idées à moitié cuites** : Des projets commencés avec enthousiasme et finis dans la confusion.  
-- **Pur Chaos** : Des fichiers que même moi je ne comprends pas vraiment.  
+Ce document explique l'utilisation du fichier `setup.py`, la commande d'installation, ainsi que l'importance du fichier `__init__.py` pour rendre les modules importables.
 
 ---
 
-## **Comment naviguer ?** 🧭
+## Le fichier `setup.py`
+Le fichier `setup.py` est utilisé pour transformer le projet en **package installable**. Cela permet d'importer ses modules sans ajouter `sys.path` manuellement dans chaque script.
 
-1. **Explore les sous-dossiers** : Chaque dossier est une nouvelle aventure. Plonge dedans et découvre ce qui t'attend !  
-2. **Utilise à tes risques et périls** : Certains scripts peuvent fonctionner, d'autres non. C'est ça qui est amusant !  
-3. **Contribue** : Tu as un script ou une idée random ? Ajoute-la à ce bazar !  
+## Installation du package
+Après avoir cloné le projet, exécutez la commande suivante à la racine du projet :
+```sh
+pip install -e .
+```
+1. **Explication** :
 
----
+    - pip install -e . (mode editable) permet d'utiliser le package sans devoir le réinstaller après chaque modification.
 
-## **Pourquoi ce repo existe ?** 🤔
+    - Une fois installé, les modules du projet peuvent être importés sans manipulation de sys.path.
 
-Parce que parfois, on a juste besoin d'un endroit pour balancer toutes nos idées, expériences et bouts de code en vrac. Ce repo est cet endroit. C'est le bordel, c'est chaotique, et c'est magnifique à sa manière.  
+2. **Automatisation** :
+Vous pouvez aussi créer un script d’installation :
 
----
+    - Windows : install.bat
 
-## **Avertissement** ⚠️
+    - Linux/macOS : install.sh
 
-Ce repository est une **zone sans jugement**. Si tu trouves quelque chose qui n'a aucun sens, félicitations—tu as compris l'esprit du projet ! 🎉  
+## Quand ajouter __init__.py ?
+Le fichier __init__.py est nécessaire dans chaque dossier contenant des modules Python pour que ceux-ci soient reconnus comme des packages.
 
----
+1. **Où ajouter __init__.py ?**
+    - Obligatoire dans les dossiers contenant du code réutilisable 
 
-Profite du chaos, et rappelle-toi : **Everything and Anything** est là pour te rappeler que coder n'a pas besoin d'être sérieux tout le temps. Parfois, c'est ok de juste s'amuser ! 🎈  
+2. **Cas où __init__.py n’est pas nécessaire**
+
+    - Si le dossier ne contient que des scripts exécutables (scripts/).
+
+    - Si le dossier ne doit pas être importé comme module.

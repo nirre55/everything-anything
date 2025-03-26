@@ -3,6 +3,7 @@ import json
 import os
 from pathlib import Path
 from load_config import load_config
+from utils.path_utils import get_folder_path
 
 # Charge les variables d'environnement
 config = load_config()
@@ -70,32 +71,6 @@ def pin_folder_to_ipfs(folder_name, folder_path, extensions):
         print(f"Erreur inattendue : {e}")
 
 
-def generate_metadata(directory, cid, description, attributes):
-    try:
-        metadata_dir = os.path.join(os.path.dirname(directory), "metadata")
-        os.makedirs(metadata_dir, exist_ok=True)
-
-        image_extensions = (".png", ".jpg", ".jpeg", ".gif")
-
-        for filename in os.listdir(directory):
-            if filename.lower().endswith(image_extensions):
-                file_id = os.path.splitext(filename)[0]
-                metadata = {
-                    "id": int(file_id),
-                    "image": f"https://ipfs.io/ipfs/{cid}/{filename}",
-                    "description": description,
-                    "attributes": attributes,
-                }
-
-                metadata_file = os.path.join(metadata_dir, f"{file_id}.json")
-                with open(metadata_file, "w", encoding="utf-8") as file:
-                    json.dump(metadata, file, indent=4)
-
-                print(f"Metadata générée pour {filename}!")
-    except Exception as e:
-        print(f"Erreur : {e}")
-
-
 def replace_cid_in_json(directory, replacement):
     try:
         for filename in os.listdir(directory):
@@ -117,7 +92,12 @@ def replace_cid_in_json(directory, replacement):
 
 
 if __name__ == "__main__":
-    # Liste des fichiers image dans le dossier local
+
+    images_folder = "images"
+    metadata_folder = "metadata"
+
+    IMAGES_FOLDER, METADATA_FOLDER = get_folder_path(images_folder, metadata_folder)
+
     image_extensions = (
         ".png",
         ".jpg",
@@ -125,23 +105,18 @@ if __name__ == "__main__":
         ".gif",
     )  # Ajoutez d'autres extensions si besoin
 
+    metadata_extensions = ".json"  # Ajoutez d'autres extensions si besoin
+
     images_cid = pin_folder_to_ipfs(
-        "images",
-        r"C:\Users\Oulmi\OneDrive\Bureau\Python Project\Everything-Anything\IPFS\images",
+        images_folder,
+        IMAGES_FOLDER,
         image_extensions,
     )
 
-    generate_metadata(
-        r"C:\Users\Oulmi\OneDrive\Bureau\Python Project\Everything-Anything\IPFS\images",
-        images_cid,
-        "my nft collection description",
-        [{"trait_type": "Country", "value": "France"}],
-    )
-
-    metadata_extensions = ".json"  # Ajoutez d'autres extensions si besoin
+    replace_cid_in_json(METADATA_FOLDER, images_cid)
 
     CID = pin_folder_to_ipfs(
-        "metadatas",
-        r"C:\Users\Oulmi\OneDrive\Bureau\Python Project\Everything-Anything\IPFS\metadata",
+        metadata_folder,
+        METADATA_FOLDER,
         metadata_extensions,
     )
