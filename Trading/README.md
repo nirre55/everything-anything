@@ -43,3 +43,44 @@ Un script Python qui prend un prix initial, un prix final et un pourcentage de c
 
 4. **Résultat :**
     - Comme le nombre d’itérations est souvent un nombre décimal, le script donne la valeur théorique exacte, puis calcule les prix obtenus avec l’entier inférieur et supérieur pour montrer où se situe le prix final.
+
+
+## Le fichier `simulation_combination generation.py` :
+
+un script Python qui génère des combinaisons de pourcentages de chute (de 1 % à 10 %) pour passer d’un prix initial à un prix final, en respectant un nombre maximal d’itérations défini par l’utilisateur. Le script cherchera toutes les combinaisons possibles et identifiera la combinaison optimale (celle qui utilise le moins d’itérations tout en atteignant ou dépassant le prix final sans dépasser le maximum d’itérations).
+
+### Explications :
+
+1. **Entrées et validation :**  
+    - Le prix initial  
+    - Le prix final  
+    - Le nombre maximum d'itérations (`max_iterations`)  
+    avec les vérifications nécessaires.
+
+2. **Pourcentages appliqués  :**  
+Les taux de réduction/promotion utilisés vont de :  
+`1% à 10%` (soit `0.01 à 0.10` en valeur décimale).
+
+3. **Génération des combinaisons :**  
+Méthode :  
+    - Utilisation de `product` pour générer toutes les combinaisons possibles (de 1 à `max_iterations`)  
+    - Pour chaque combinaison générée, nous calculons :  
+    - Le prix obtenu après application des promotions  
+    - La somme cumulée des pourcentages appliqués  
+
+4. **Tri et sélection des combinaisons :**  
+Critères de tri (appliqués via `sort`) :  
+    - Somme des pourcentages (priorité principale)  
+    - Nombre d'itérations (priorité secondaire)  
+    - Dernier élément de la combinaison (critère tertiaire)  
+
+5. **Résultats en sortie :**  
+    - **Affichage** :  
+        - **Toutes les combinaisons valides** (où `prix obtenu ≤ prix final`) avec :  
+            - Prix final calculé  
+            - Somme des % appliqués  
+            - Nombre d'itérations  
+        - **Combinaison optimale** : Premier résultat du tri (meilleur compromis).  
+    - **Fichiers** :
+        - `combinaisons_reductions.txt` : Contient toutes les combinaisons valides, comme dans la version précédente.
+        - `resultats_optimaux.txt` : Contient exactement ce qui est affiché à l’écran (nombre total de combinaisons et détails de la combinaison optimale).
