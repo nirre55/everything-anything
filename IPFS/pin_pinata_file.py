@@ -98,7 +98,7 @@ def upload_single_to_ipfs(image_path, description, attributes):
 
 # Exemple d'utilisation
 if __name__ == "__main__":
-    image_path = r"C:\Users\Oulmi\OneDrive\Bureau\Python Project\Everything-Anything\IPFS\images\2.png"
+    image_path = r""  # image path here
     description = "my nft collection description"
     attributes = [{"trait_type": "Country", "value": "France"}]
     retour = upload_single_to_ipfs(image_path, description, attributes)
