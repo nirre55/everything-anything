@@ -84,3 +84,33 @@ Critères de tri (appliqués via `sort`) :
     - **Fichiers** :
         - `combinaisons_reductions.txt` : Contient toutes les combinaisons valides, comme dans la version précédente.
         - `resultats_optimaux.txt` : Contient exactement ce qui est affiché à l’écran (nombre total de combinaisons et détails de la combinaison optimale).
+
+
+## Le fichier `calcul_reductions_avec_target_et_multiplicateur.py.py` :
+
+Ce script prend un prix initial, une liste de pourcentages de chute, et un prix cible (target). Pour chaque réduction, il calcule le prix obtenu, puis le pourcentage de hausse nécessaire pour atteindre le prix cible à partir du prix actuel et le multiplicateur nécessaire pour passer du prix actuel au prix cible après chaque réduction.
+
+### Explications :
+
+1. **Entrées :**  
+    - Le prix initial  
+    - Le prix target
+    - Liste de pourcentage de chute 
+
+2. **Vérifications  :**  
+    - Vérifie que le prix initial et le prix cible sont positifs.
+    - Vérifie que les pourcentages sont valides (non négatifs).
+
+3. **Fonctions :** 
+    - `appliquer_reduction` : Calcule le prix après une réduction.
+
+    - `calculer_hausse` : Calcule le pourcentage de hausse nécessaire pour passer du prix actuel au prix cible avec la formule : \text{Hausse} = \frac{\text{prix_cible} - \text{prix_actuel}}{\text{prix_actuel}} \times 100.
+
+    - `calculer_multiplicateur` : Calcule le facteur par lequel il faut multiplier le prix actuel pour atteindre le prix cible : \text{Multiplicateur} = \frac{\text{prix_cible}}{\text{prix_actuel}}.
+
+4. **Sortie  :**  
+Pour chaque étape (y compris le prix initial), le script affiche :  
+    - Le prix actuel.
+    - Le pourcentage de hausse nécessaire.
+    - Le multiplicateur (avec le symbole × pour plus de clarté).
+
