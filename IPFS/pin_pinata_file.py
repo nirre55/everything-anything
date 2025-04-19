@@ -2,15 +2,15 @@ import requests
 import os
 import json
 import os
-from load_config import load_config
+from Utils.env_loader import load_env
 
 # Charge les variables d'environnement
-config = load_config()
+load_env()
 
 
 # Vos clés API Pinata
-PINATA_API_KEY = config["api_key"]
-PINATA_SECRET_API_KEY = config["api_secret_key"]
+PINATA_API_KEY = os.getenv("api_key")
+PINATA_SECRET_API_KEY = os.getenv("api_secret_key")
 
 PINATA_API_URL = "https://api.pinata.cloud"
 

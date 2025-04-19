@@ -1,6 +1,6 @@
 import os
 import subprocess
-from utils.path_utils import get_folder_path
+from Utils.path_utils import get_folder_path
 
 
 def convert_svgs_to_png(

@@ -1,5 +1,5 @@
 from itertools import product
-from utils.path_utils import get_single_folder_path
+from Utils.path_utils import get_single_folder_path
 
 # Entrées utilisateur
 prix_initial = float(input("Entrez le prix initial ($): "))

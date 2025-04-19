@@ -2,15 +2,14 @@ import requests
 import json
 import os
 from pathlib import Path
-from load_config import load_config
-from utils.path_utils import get_folder_path
+from Utils.env_loader import load_env
+from Utils.path_utils import get_folder_path
 
 # Charge les variables d'environnement
-config = load_config()
-
+load_env()
 
 # Vos clés API Pinata
-PINATA_JWT = config["jwk_key"]
+PINATA_JWT = os.getenv("jwk_key")
 
 # Remplacez par votre JWT Pinata
 PINATA_API_URL = "https://api.pinata.cloud/pinning/pinFileToIPFS"

@@ -1,7 +1,7 @@
 import os
 import unicodedata
 import re
-from utils.path_utils import get_single_folder_path
+from Utils.path_utils import get_single_folder_path
 
 
 def normalize_filename(filename):
