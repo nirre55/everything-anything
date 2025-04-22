@@ -1,7 +1,7 @@
 import json
 import sys
 from pathlib import Path
-from utils.path_utils import get_folder_path, get_single_folder_path
+from Utils.path_utils import get_single_folder_path
 
 
 def update_json_files_with_rarity(data_folder: str, metadata_folder: str, rarity: str):

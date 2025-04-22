@@ -1,7 +1,7 @@
 import os
 import json
-from utils.path_utils import get_folder_path
-from utils.rename_image import rename_image_in_folder
+from Utils.path_utils import get_folder_path
+from Utils.rename_image import rename_image_in_folder
 
 
 def generate_json_metadata(images_folder, metadata_folder):
