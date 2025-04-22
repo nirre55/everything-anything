@@ -86,7 +86,7 @@ Critères de tri (appliqués via `sort`) :
         - `resultats_optimaux.txt` : Contient exactement ce qui est affiché à l’écran (nombre total de combinaisons et détails de la combinaison optimale).
 
 
-## Le fichier `calcul_reductions_avec_target_et_multiplicateur.py.py` :
+## Le fichier `calcul_reductions_avec_target_et_multiplicateur.py` :
 
 Ce script prend un prix initial, une liste de pourcentages de chute, et un prix cible (target). Pour chaque réduction, il calcule le prix obtenu, puis le pourcentage de hausse nécessaire pour atteindre le prix cible à partir du prix actuel et le multiplicateur nécessaire pour passer du prix actuel au prix cible après chaque réduction.
 
@@ -113,4 +113,28 @@ Pour chaque étape (y compris le prix initial), le script affiche :
     - Le prix actuel.
     - Le pourcentage de hausse nécessaire.
     - Le multiplicateur (avec le symbole × pour plus de clarté).
+
+
+## Le fichier `binance_trading_testnet.py`
+
+Un script Python pour le trading automatisé de contrats à terme sur l'échange Binance en utilisant la bibliothèque CCXT. Ce script permet d'ouvrir des positions au marché et à cours limité avec des ordres de take-profit (TP) et stop-loss (SL), de gérer l'effet de levier et la balance. Il est conçu pour fonctionner à la fois en environnement de test (testnet) et en production.
+
+### Fonctionnalités
+- Connexion au marché des futures de Binance via CCXT.
+- Support des ordres au marché et à cours limité avec TP/SL.
+- Configuration de l'effet de levier et calcul de la taille des positions basé sur un pourcentage de la balance.
+- Mode testnet pour des tests sécurisés.
+- Gestion des erreurs pour des opérations de trading robustes.
+- Chargement des variables d'environnement pour une gestion sécurisée des clés API.
+
+### Configuration
+- Mode Testnet : Définissez use_testnet=True pour tester sur l'environnement testnet de Binance sinon Prod.
+- Effet de levier : Ajustez l'effet de levier avec set_leverage(symbol, leverage). Par défaut, 10x.
+- Taille des positions : Spécifiez le pourcentage de la balance à utiliser pour chaque trade (par exemple, percentage=10 pour 10 %).
+
+### Remarques
+- La fonction `open_limite_position_with_tp_and_sl` est actuellement supportée uniquement sur OKX en raison des limitations des exchanges.
+- Les ordres TP/SL pour les positions à cours limité ne sont pas supportés sur Binance ; utilisez `open_market_position_then_add_tp_sl` à la place.
+- Une seule position avec TP/SL peut être ouverte à la fois par symbole.
+- Assurez-vous d'avoir une balance suffisante sur votre compte Binance (testnet ou production).
 
