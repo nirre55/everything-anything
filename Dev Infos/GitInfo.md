@@ -1,14 +1,9 @@
-1. Cloner, modifier et pousser dans un autre dépôt
-2. Synchroniser un dépôt avec l’état local (y compris les suppressions)
-
----
-
 # 📘 Guide Git : Clonage, Modification et Synchronisation d'un Dépôt
 
-Ce guide contient deux parties :
+Ce guide contient des inforamtion a connaitre pour l'utilisation de `Git` :
 
-1. Cloner un dépôt existant, le modifier, et pousser vers un autre dépôt.
-2. Synchroniser un dépôt distant avec les fichiers locaux, y compris les suppressions.
+- [🔄 Partie 1 : Cloner un dépôt, le modifier et le pousser](#-1-cloner-un-dépôt-le-modifier-et-le-pousser-vers-un-autre-dépôt)
+- [🧹 Partie 2 : Synchroniser un dépôt avec les fichiers locaux](#-2-synchroniser-un-dépôt-avec-les-fichiers-locaux-y-compris-les-suppressions)
 
 ---
 
